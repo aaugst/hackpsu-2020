@@ -1,0 +1,29 @@
+
+#middle{
+  background-color: #2F2F31;
+  opacity: 0.9;
+  margin: auto;
+  height: 600px;
+  width: 900px;
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-brand{
+    font-size: 40px !important;
+    color: white !important;
+}
+.custom-nav{
+  position: absolute;
+  bottom: 20%;
+}
+.custom-nav a{
+  margin: 30px;
+  color: white;
+  font-size: 20px;
+}
+label{
+    color: white;
+}

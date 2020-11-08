@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blank Page - Brand</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: #ffed38;box-shadow: 0px 0px 20px 3px;">
+            <div class="container-fluid d-flex flex-column p-0">
+                <img class="rounded-circle img-fluid" src="{{ url_for('static',filename='free-pro-pic.jpeg') }}" width="150px" height="100px" style="padding-top: 0;margin-top: 50px;text-align: center;color: #feffb4;margin-bottom: 50px;border: 5px solid #fcad56;box-shadow: 0px 0px 10px #858796;">
+                <ul class="nav navbar-nav text-center text-light" id="accordionSidebar" style="text-align: center;">
+                    <li class="nav-item"><a class="nav-link text-center active" href="{{ url_for('home') }}" style="font-size: 33px;text-align: center;color: #ffffff;box-shadow: 0px 0px 5px #858796, 0px 0px;margin-bottom: 20px;font-weight: bold;font-family: 'PT Sans', sans-serif;background: #fcad56;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-center" href="{{ url_for('profile') }}" style="font-size: 33px;color: #ffffff;box-shadow: 0px 0px 5px #858796;margin-bottom: 20px;font-family: 'PT Sans', sans-serif;font-weight: bold;background: #fcad56;">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link text-center" href="{{ url_for('chat') }}" style="font-size: 33px;color: #ffffff;box-shadow: 0px 0px 5px #858796;font-family: 'PT Sans', sans-serif;font-weight: bold;background: #fcad56;">Chat</a></li>
+                </ul>
+            </div>
+        </nav>
+        {%block body%}
+        {%endblock%}
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

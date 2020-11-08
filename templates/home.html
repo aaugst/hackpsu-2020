@@ -1,0 +1,33 @@
+﻿{%extends "layout.html"%}
+{% block body %}
+<div class="d-flex flex-column" id="content-wrapper">
+    <div id="content" style="background: #ffffff;">
+        <div class="container" style="padding: 24px;text-align: left;">
+            <div class="row">
+                <div class="col">
+                    <h1 style="color: #fcad56;font-family: 'PT Sans', sans-serif;font-weight: bold;font-style: normal;">Good Morning Ian!</h1>
+                </div>
+                <div class="col"><img></div>
+            </div>
+        </div>
+        <div class="container" style="padding: 24px;text-align: left;">
+            <h1 style="color: #fcad56;font-family: 'PT Sans', sans-serif;font-weight: bold;font-style: normal;">How are you feeling?</h1>
+            <div id="smilies">
+                <input type="image" src="{{url_for('static',filename='smiley1.png')}}" />
+                <input type="image" src="{{url_for('static',filename='smiley2.png')}}" />
+                <input type="image" src="{{url_for('static',filename='smiley3.png')}}" />
+                <input type="image" src="{{url_for('static',filename='smiley4.png')}}" />
+                <input type="image" src="{{url_for('static',filename='smiley5.png')}}" />
+            </div>
+        </div>
+        <div class="container" style="padding: 24px;text-align: left;">
+            <h1 style="color: #fcad56;font-family: 'PT Sans', sans-serif;font-weight: bold;font-style: normal;">Suggested Activities:</h1><input type="text" style="border-style: solid;">
+        </div>
+    </div>
+    <footer class="bg-white sticky-footer">
+        <div class="container my-auto">
+            <div class="text-center my-auto copyright"><span style="font-family: 'PT Sans', sans-serif;">Copyright © Andreya Augst 2020</span></div>
+        </div>
+    </footer>
+</div>
+{% endblock %}
