@@ -8,3 +8,5 @@ Our web app responds to the increased depression, loneliness, and boredom report
 We used Figma, HTML/CSS, Adobe Illustrator and Bootstrap Studio to design the front-end of the site.
 
 We used Python, Github, something else for the back-end of the site.
+
+"preoccupy: verb (T); to be the main thought in someone's mind, causing other things to be forgotten" (Definition of _preoccupy_ from the Cambridge Advanced Learner's Dictionary & Thesaurus © Cambridge University Press).
