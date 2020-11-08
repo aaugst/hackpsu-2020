@@ -15,17 +15,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
-
-<body id="page-top">
+<body id="page-top" style="font-family: 'PT Sans', sans-serif;">
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: #ffed38;box-shadow: 0px 0px 20px 3px;">
-            <div class="container-fluid d-flex flex-column p-0">
-                <img class="rounded-circle img-fluid" src="{{ url_for('static',filename='free-pro-pic.jpeg') }}" width="150px" height="100px" style="padding-top: 0;margin-top: 50px;text-align: center;color: #feffb4;margin-bottom: 50px;border: 5px solid #fcad56;box-shadow: 0px 0px 10px #858796;">
-                <ul class="nav navbar-nav text-center text-light" id="accordionSidebar" style="text-align: center;">
-                    <li class="nav-item"><a class="nav-link text-center active" href="{{ url_for('home') }}" style="font-size: 33px;text-align: center;color: #ffffff;box-shadow: 0px 0px 5px #858796, 0px 0px;margin-bottom: 20px;font-weight: bold;font-family: 'PT Sans', sans-serif;background: #fcad56;">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-center" href="{{ url_for('profile') }}" style="font-size: 33px;color: #ffffff;box-shadow: 0px 0px 5px #858796;margin-bottom: 20px;font-family: 'PT Sans', sans-serif;font-weight: bold;background: #fcad56;">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link text-center" href="{{ url_for('chat') }}" style="font-size: 33px;color: #ffffff;box-shadow: 0px 0px 5px #858796;font-family: 'PT Sans', sans-serif;font-weight: bold;background: #fcad56;">Chat</a></li>
-                </ul>
+        <nav class="navbar navbar-dark border rounded-0 align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 fixed" style="background: rgb(86,214,201);margin-left: -3px;">
+            <div class="container-fluid d-flex flex-column p-0"><img class="rounded-circle img-fluid" src="assets/img/avatars/free-pro-pic.jpeg" width="150px" height="100px" style="padding-top: 0;margin-top: 50px;text-align: center;color: #feffb4;margin-bottom: 50px;border-radius: 0px;border: 16px solid #ffffff ;border-top-width: 10px;border-top-color: #5b618a;border-right-width: 10px;border-right-color: #5b618a;border-bottom-width: 10px;border-bottom-color: #ecffb0;border-left: 10px solid #ffa69e ;">
+                <ul
+                    class="nav navbar-nav text-center text-light" id="accordionSidebar" style="text-align: center;">
+                    <li class="nav-item"><a class="nav-link text-center" href="home.html" style="font-size: 33px;text-align: center;color: #ffffff;margin-bottom: 30px;font-weight: normal;font-family: Alatsi, sans-serif;background: #5b618a;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-center active" href="profile.html" style="font-size: 33px;color: #ffffff;margin-bottom: 30px;font-family: Alatsi, sans-serif;font-weight: normal;background: #5b618a;">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link text-center" href="chat.html" style="font-size: 33px;color: #ffffff;font-family: Alatsi, sans-serif;font-weight: normal;background: #5b618a;">Chat</a></li>
+                    </ul>
             </div>
         </nav>
         {%block body%}
@@ -38,5 +37,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
 </body>
+
 
 </html>
