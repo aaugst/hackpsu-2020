@@ -1,32 +1,80 @@
-﻿{%extends "layout.html"%}
-{% block body %}
-<div class="d-flex flex-column" id="content-wrapper">
-    <div id="content" style="background: #ffffff;">
-        <div id="main-section">
-            <nav id="room_selector">
+<!DOCTYPE html>
+<html>
 
-            </nav>
-            <div id="right_panel">
-                <div id="display_messages_area">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blank Page - Brand</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas+Neue">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/untitled.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 
-                </div>
-                <div id="chat_input">
-                    <input type="text" id="user_message" placeholder="Say something nice..." autocomplete="off">
-                    <button type="button" id="send_message">Send</button>
+</head>
 
-                </div>
-
+<body id="page-top">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var socket = io.connect('http://'+document.domain+':'+location.port);
+            socket.on('connect',function(){
+            socket.send(' has connected');
+        });
+        socket.on('message',function(msg){
+            $('#messages').append('<li style="color:black"> <span style="color:#7d0000">{{user_name}}: </span>'+msg+'</li>');
+        });
+        $('#send_button').on('click', function(){
+            socket.send($('#user_message').val());
+            $('#user_message').val('');
+        });
+        });
+    </script>
+    <div id="wrapper">
+        <nav class="navbar navbar-dark border rounded-0 align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 fixed" style="background: rgb(86,214,201);margin-left: -3px;">
+            <div class="container-fluid d-flex flex-column p-0">
+                <img class="rounded-circle img-fluid" src="{{ url_for('static',filename='free-pro-pic.jpeg')}}" width="150px" height="100px" style="padding-top: 0;margin-top: 50px;text-align: center;color: #feffb4;margin-bottom: 50px;border-radius: 0px;border: 16px solid #ffffff;border-top-width: 10px;border-top-color: #5b618a;border-right-width: 10px;border-right-color: #5b618a;border-bottom-width: 10px;border-bottom-color: #ecffb0;border-left: 10px solid #ffa69e;height: 125px;width: 125px;">
+                <ul class="nav navbar-nav text-center text-light" id="accordionSidebar" style="text-align: center;">
+                    <li class="nav-item"><a class="nav-link text-center" href="{{ url_for('home')}}" style="font-size: 20px;text-align: center;color: #ffffff;margin-bottom: 30px;font-weight: normal;font-family: Alatsi, sans-serif;background: #5b618a;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-center active" href="{{ url_for('profile')}}" style="font-size: 20px;color: #ffffff;margin-bottom: 30px;font-family: Alatsi, sans-serif;font-weight: normal;background: #5b618a;">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link text-center" href="{{ url_for('chat')}}" style="font-size: 20px;color: #ffffff;font-family: Alatsi, sans-serif;font-weight: normal;background: #5b618a;">Chat</a></li>
+                    <li class="nav-item" style="margin-top: 30px;"><a class="nav-link text-center" href="{{url_for('logout')}}" style="font-size: 20px;text-align: center;color: #ffffff;margin-bottom: 30px;font-weight: normal;font-family: Alatsi, sans-serif;background: #5b618a;">Log Out</a></li>
+                </ul>
             </div>
+        </nav>
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content" style="background: rgb(236,255,176);margin-left: 150px;min-height: 1100px;">
+                <h1 style="color: #5b618a;font-family: 'Bebas Neue', cursive;font-weight: bold;text-align: right;font-size: 119px;margin-top: 55px;margin-right: 65px;">PREOCCUPY</h1>
+                <div class="container" style="padding: 35px;font-family: 'PT Sans', sans-serif;background: rgba(255,166,158,0.64);border-radius: 25px;margin-top: 35px;margin-bottom: 35px;min-height: 500px;max-width: 1100px;">
+                    <h1 style="color: #5b618a;font-family: Alatsi, sans-serif;font-weight: bold;font-size: 35px;text-align: left;margin-left: 35px;margin-top: 25px;margin-bottom: 35px;">Say Something Nice</h1>
+                    <ul id="messages"></ul>
+                </div>
+                <div class="container" style="padding: 35px;font-family: 'PT Sans', sans-serif;background: rgb(86,214,201);border-radius: 25px;margin-top: 35px;margin-bottom: 35px;max-width: 1100px;">
+                    <div class="row">
+                        <div class="col"><input type="text" id="user_message" style="padding: 14px;padding-right: 605px;"></div>
+                        <div class="col">
+                        <button class="btn btn-primary" id="send_button"type="button" style="background: #5b618a;font-size: 26px;text-align: right;padding-right: 18px;padding-left: 8px;">
+                            Send
+                            </button></div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer" style="color: #f9c9a3;background: #fcad56;border-bottom-style: none;border-bottom-color: #f9c9a3;margin-left: 200px;">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span style="font-family: 'PT Sans', sans-serif;color: #2dc8c8;">Copyright © Andreya Augst 2020</span></div>
+                </div>
+            </footer>
         </div>
-        <script src="{{url_for('static',filename='scripts/socketio.js')}}"></script>
     </div>
-    <footer class="bg-white sticky-footer">
-        <div class="container my-auto">
-            <div class="text-center my-auto copyright"><span style="font-family: 'PT Sans', sans-serif;">Copyright © Andreya Augst 2020</span></div>
-        </div>
-    </footer>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    
+    <script src="{{url_for('static',filename='scripts/bootstrap.min.js')}}></script>
+    <script src="{{url_for('static',filename='scripts/chart.min.js')}}></script>
+    <script src="{{url_for('static',filename='scripts/bs-init.js')}}></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="{{url_for('static',filename='scripts/theme.js')}}></script>
+</body>
 
 
-{% endblock %}
+</html>

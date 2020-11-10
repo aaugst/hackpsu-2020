@@ -1,22 +1,80 @@
-﻿{%extends "layout.html"%}
-{% block body %}
-    <div class="d-flex flex-column" id="content-wrapper" style="background: rgba(45,200,200,0);">
-                <div id="content" style="background: rgb(236,255,176);margin-left: 150px;min-height: 1000px;">
-                    <h1 style="color: #5b618a;font-family: 'Bebas Neue', cursive;font-weight: bold;text-align: right;font-size: 119px;margin-top: 55px;margin-right: 65px;margin-bottom: 20px;">PREOCCUPY</h1>
-                    <div class="container" style="padding: 35px;font-family: 'PT Sans', sans-serif;background: rgba(255,166,158,0.64);border-radius: 25px;margin-top: 35px;margin-bottom: 35px;">
-                        <h1 style="color: #5b618a;font-family: Alatsi, sans-serif;font-weight: bold;font-size: 50px;text-align: left;margin-left: 35px;margin-top: 25px;margin-bottom: 35px;">Good Morning, Ian!</h1>
-                    </div>
-                    <div class="container" style="padding: 35px;font-family: Alatsi, sans-serif;background: rgba(255,166,158,0.64);border-radius: 25px;margin-top: 35px;margin-bottom: 35px;color: #5b618a;font-size: 50px;font-weight: bold;">
-                        <h1 style="color: #5b618a;font-family: Alatsi, sans-serif;font-weight: bold;font-size: 50px;text-align: left;margin-left: 35px;margin-top: 25px;margin-bottom: 35px;">How are you feeling?</h1>
-                    </div>
-                    <div class="container" style="padding: 35px;font-family: Alatsi, sans-serif;background: rgba(255,166,158,0.64);border-radius: 25px;margin-top: 35px;margin-bottom: 35px;color: #5b618a;font-size: 50px;font-weight: bold;">
-                        <h1 style="color: #5b618a;font-family: Alatsi, sans-serif;font-weight: bold;font-size: 50px;text-align: left;margin-left: 35px;margin-top: 25px;margin-bottom: 35px;">We've hand-picked these activities for you :</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blank Page - Brand</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas+Neue">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/untitled.css')}}">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper" style="background: rgba(45,200,200,0);">
+            <nav class="navbar navbar-dark border rounded-0 align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 fixed" style="background: rgb(86,214,201);margin-left: -3px;">
+                <div class="container-fluid d-flex flex-column p-0">
+                    <img class="rounded-circle img-fluid" src="{{ url_for('static',filename='free-pro-pic.jpeg')}}" width="150px" height="100px" style="padding-top: 0;margin-top: 50px;text-align: center;color: #feffb4;margin-bottom: 50px;border-radius: 0px;border: 16px solid #ffffff;border-top-width: 10px;border-top-color: #5b618a;border-right-width: 10px;border-right-color: #5b618a;border-bottom-width: 10px;border-bottom-color: #ecffb0;border-left: 10px solid #ffa69e;height: 125px;width: 125px;">
+                    <ul class="nav navbar-nav text-center text-light" id="accordionSidebar" style="text-align: center;">
+                        <li class="nav-item"><a class="nav-link text-center" href="{{ url_for('home')}}" style="font-size: 20px;text-align: center;color: #ffffff;margin-bottom: 30px;font-weight: normal;font-family: Alatsi, sans-serif;background: #5b618a;">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-center active" href="{{ url_for('profile')}}" style="font-size: 20px;color: #ffffff;margin-bottom: 30px;font-family: Alatsi, sans-serif;font-weight: normal;background: #5b618a;">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link text-center" href="{{ url_for('chat')}}" style="font-size: 20px;color: #ffffff;font-family: Alatsi, sans-serif;font-weight: normal;background: #5b618a;">Chat</a></li>
+                        <li class="nav-item" style="margin-top: 30px;"><a class="nav-link text-center" href="{{url_for('logout')}}" style="font-size: 20px;text-align: center;color: #ffffff;margin-bottom: 30px;font-weight: normal;font-family: Alatsi, sans-serif;background: #5b618a;">Log Out</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="content" style="background: rgb(236,255,176);margin-left: 150px;min-height: 1000px;">
+                <h1 style="color: #5b618a;font-family: 'Bebas Neue', cursive;font-weight: bold;text-align: right;font-size: 119px;margin-top: 55px;margin-right: 65px;margin-bottom: 20px;">PREOCCUPY</h1>
+                <div class="container" style="padding: 35px;font-family: 'PT Sans', sans-serif;background: rgba(255,166,158,0.64);border-radius: 25px;margin-top: 35px;margin-bottom: 35px;max-width: 1100px;">
+                    <h1 style="color: #5b618a;font-family: Alatsi, sans-serif;font-weight: bold;font-size: 35px;text-align: left;margin-left: 35px;margin-bottom: 10px;margin-top: 10px;">Good Morning, {{user_name}}!</h1>
+                </div>
+                <div class="container" style="padding: 35px;font-family: 'PT Sans', sans-serif;background: rgba(255,166,158,0.64);border-radius: 25px;margin-top: 35px;margin-bottom: 35px;max-width: 1100px;">
+                    <h1 style="color: #5b618a;font-family: Alatsi, sans-serif;font-weight: bold;font-size: 35px;text-align: left;margin-left: 35px;margin-bottom: 35px;margin-top: 10px;">How are you feeling?</h1>
+                    <form action="#" method="post">
+                        <button class="btn btn-primary" name="action" value="5" type="submit" style="margin-left: 35px;width:150px;margin-right: 35px;margin-bottom: 35px;background: #f8e958;font-size: 25px;border-style: none;border-right-style: none;border-right-color: #ffed38;">Great</button>
+                        <button class="btn btn-primary" name="action" value="4" type="submit" style="margin-right: 35px;width:150px;margin-bottom: 35px;background: #fbc716;font-size: 25px;border-style: none;">Good</button>
+                        <button class="btn btn-primary" name="action" value="3" type="submit" style="margin-right: 35px;width:150px;margin-bottom: 35px;background: #ce007c;font-size: 25px;border-style: none;">Ok</button>
+                        <button class="btn btn-primary" name="action" value="2" type="submit" style="margin-right: 35px;width:150px;margin-bottom: 35px;background: #3a75c4;font-size: 25px;border-style: none;">Not Great</button>
+                        <button class="btn btn-primary" name="action" value="1" type="submit" style="margin-right: right; width: 150px; margin-bottom: 35px; background: #6d28aa; font-size: 25px; border-style: none;">Bad</button>
+                    </form>
+                    
+                </div>
+                <div class="container" style="padding: 35px;font-family: 'PT Sans', sans-serif;background: rgba(255,166,158,0.64);border-radius: 25px;margin-top: 35px;margin-bottom: 35px;max-width: 1100px;">
+                    <h1 style="color: #5b618a;font-family: Alatsi, sans-serif;font-weight: bold;font-size: 35px;text-align: left;margin-left: 35px;margin-bottom: 35px;margin-top: 10px;">We've hand-picked these activities for you :&nbsp;</h1>
+                    <div class="row" style="color: #5b618a;font-family: Alatsi, sans-serif;font-size: 20px;">
+                        <div class="col">
+                            <p style="font-weight: bold;font-size: 25px;background: rgba(249,201,163,0);border-bottom-width: 10px;border-bottom-style: solid;">Eat Breakfast</p>
+                            <p style="background: rgba(255,255,255,0);border-radius: 10px;margin-bottom: 35px;border: 3px none #5b618a;border-bottom-style: none;">Try a glass of orange juice and some whole-grain toast with butter or jam</p>
+                            <p style="font-size: 25px;background: rgba(255,166,158,0);color: #5b618a;border-bottom-width: 10px;border-bottom-style: solid;">Go Outside</p>
+                            <p style="background: rgba(255,255,255,0);border-radius: 10px;margin-bottom: 35px;border-width: 3px;border-style: none;border-bottom-style: none;">It's 60° F outside. Take a brisk walk, or go to your local park, remembering to social distance</p>
+                            <p style="font-size: 25px;background: rgba(255,166,158,0);border-bottom-width: 10px;border-bottom-style: solid;">Clean your Room</p>
+                            <p style="background: rgba(255,255,255,0);border-radius: 10px;border-width: 3px;border-style: none;">Clean your bedsheets, pick up clothes off the floor, and organize your desk</p>
+                        </div>
+                        <div class="col">
+                            <p style="font-size: 25px;background: rgba(255,166,158,0);border-bottom-width: 10px;border-bottom-style: solid;">Learn a New Language</p>
+                            <p style="border-radius: 10px;margin-bottom: 35px;border-width: 3px;border-style: none;">Feeling unproductive? Download a free language learning app and practice for 30 minutes</p>
+                            <p style="font-size: 25px;background: rgba(255,166,158,0);border-bottom-width: 10px;border-bottom-style: solid;">Call a Friend</p>
+                            <p style="font-weight: normal;border-radius: 10px;margin-bottom: 35px;border-width: 3px;border-style: none;">Reach out to your parents, or a friend. If you don't have anyone to call, try the Chat Feature to chat with other users&nbsp;</p>
+                            <p style="font-size: 25px;background: rgba(255,166,158,0);border-bottom-width: 10px;border-bottom-style: solid;">Make a Playlist</p>
+                            <p style="border-radius: 10px;border-width: 3px;border-style: none;">Check out the latest songs on Spotify, Apple Music, or Soundcloud</p>
+                        </div>
                     </div>
                 </div>
-                <footer class="bg-white sticky-footer" style="color: #f9c9a3;background: #fcad56;border-bottom-style: none;border-bottom-color: #f9c9a3;margin-left: 200px;">
-                    <div class="container my-auto">
-                        <div class="text-center my-auto copyright"><span style="font-family: 'PT Sans', sans-serif;color: #56d6c9;font-size: 15px;">Copyright © Andreya Augst 2020</span></div>
-                    </div>
-                </footer>
             </div>
-{% endblock %}
+            <footer class="bg-white sticky-footer" style="color: #f9c9a3;background: #fcad56;border-bottom-style: none;border-bottom-color: #f9c9a3;margin-left: 200px;">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span style="font-family: 'PT Sans', sans-serif;color: #56d6c9;font-size: 15px;">Copyright © Andreya Augst 2020</span></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

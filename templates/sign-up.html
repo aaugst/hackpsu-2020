@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>hackpsu2020</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas+Neue">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
-    <link rel="stylesheet" href="assets/css/untitled.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/untitled.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body style="background: #ecffb0;">
@@ -23,11 +24,16 @@
             </div>
         </header>
         <div class="container text-center d-xl-flex justify-content-xl-center align-items-xl-center" style="text-align: center;margin-top: 195px;margin-bottom: 195px;background: #f9c9a3;border-radius: 25px;padding-top: 50px;padding-bottom: 50px;max-width: 500px;">
-            <form class="text-center" style="text-align: center;">
+            <form class="text-center" style="text-align: center;" action="#" method="post">
                 <h1 style="text-align: center;color: #5b618a;font-family: Alatsi, sans-serif;font-weight: bold;font-size: 50px;">Sign Up</h1>
-                <div class="form-group justify-content-center align-items-center align-content-center align-self-center" style="text-align: center;"><input class="form-control" type="email" required="" placeholder="email" style="text-align: left;margin-top: 35px;margin-bottom: 20px;font-size: 25px;"><input class="form-control" type="password" required="" placeholder="password" style="margin-bottom: 20px;font-size: 25px;color: #5b618a;">
-                    <button
-                        class="btn btn-primary" type="submit" style="margin-top: 15px;background: #56d6c9;font-size: 20px;font-weight: bold;">Submit</button>
+                <div class="form-group justify-content-center align-items-center align-content-center align-self-center" style="text-align: center;">
+                    <input class="form-control" name="user_name" type="text" required="" placeholder="full name" style="text-align: left;margin-top: 35px;margin-bottom: 20px;font-size: 25px;">
+                    <input class="form-control" name="user_email_new" type="email" required="" placeholder="email" style="margin-bottom: 20px;font-size: 25px;color: #5b618a;">
+                    <input class="form-control" name="user_password_new" type="password" required="" placeholder="password" style="margin-bottom: 20px;font-size: 25px;color: #5b618a;">
+                    <button class="btn btn-primary" type="submit" style="margin-top: 15px;background: #56d6c9;font-size: 20px;font-weight: bold;margin-bottom: 15px;">
+                        Submit
+                    </button>
+                    <a class="btn btn-primary" style="margin-top: 15px;background: #56d6c9;font-size: 20px;font-weight: bold;margin-bottom: 15px;" href="{{url_for('login')}}">Login</a>
                 </div>
             </form>
         </div>
